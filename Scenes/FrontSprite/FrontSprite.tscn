@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://2juealdyrtgy"]
+
+[ext_resource type="Texture2D" uid="uid://cw5w7qijpkgkf" path="res://Assets/glitch/cabbage.png" id="1_dw5qn"]
+
+[node name="FrontSprite" type="TextureRect" unique_id=2012067910]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_dw5qn")
