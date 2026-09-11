@@ -23,6 +23,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Control" type="Control" parent="HB" unique_id=1155108573]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="TileGrid" type="GridContainer" parent="HB" unique_id=1727416405]
 layout_mode = 2
 size_flags_horizontal = 6
@@ -70,6 +75,11 @@ layout_mode = 2
 
 [node name="MemoryTile14" parent="HB/TileGrid" unique_id=664732819 instance=ExtResource("1_rdw05")]
 layout_mode = 2
+
+[node name="Control2" type="Control" parent="HB" unique_id=374763209]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="MC" type="MarginContainer" parent="HB" unique_id=36724090]
 layout_mode = 2
@@ -138,3 +148,8 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "EXIT"
 label_settings = ExtResource("6_3k6gv")
+
+[node name="Control3" type="Control" parent="HB" unique_id=1087286404]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
