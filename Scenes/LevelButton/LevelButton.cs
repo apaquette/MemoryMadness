@@ -1,5 +1,5 @@
 using Godot;
-using System;
+using System.Collections.Generic;
 
 public partial class LevelButton : TextureButton
 {
@@ -8,12 +8,25 @@ public partial class LevelButton : TextureButton
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		if(_level_setting == null)
-		{
-			GD.PushError("LevelSetting is null");
-			QueueFree();
-			return;
-		}
+		if(!Valid()) return;
+
 		_label.Text = $"{_level_setting}";
+	}
+
+	private bool Valid()
+	{
+		List<string> errors = [];
+
+		if(_level_setting is null) errors.Add("LevelSetting is null");
+		if(_label is null) errors.Add("Label is null");
+
+
+		if (errors.Count > 0)
+		{
+			errors.ForEach(GD.PushError);
+			QueueFree();
+		}
+
+		return errors.Count == 0;
 	}
 }
