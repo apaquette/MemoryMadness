@@ -21,8 +21,8 @@ grow_vertical = 2
 texture = ExtResource("1_h6g34")
 
 [node name="Main" parent="." unique_id=1162535910 instance=ExtResource("2_o4rt4")]
-visible = false
 layout_mode = 1
 
 [node name="Game" parent="." unique_id=1280818127 instance=ExtResource("3_7tgqy")]
+visible = false
 layout_mode = 1
