@@ -15,6 +15,11 @@ run/main_scene="uid://b80051ck1e5ik"
 config/features=PackedStringArray("4.6", "C#", "Mobile")
 config/icon="uid://cm3x4oiekoxmy"
 
+[autoload]
+
+SignalHub="*uid://bvpd2gpn67xj6"
+ImageManager="*uid://b6p5vulo6dxi6"
+
 [display]
 
 window/size/viewport_width=1024

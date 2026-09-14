@@ -11,6 +11,7 @@ public partial class LevelButton : TextureButton
 		if(!Valid()) return;
 
 		_label.Text = $"{_level_setting}";
+		Pressed += () => SignalHub.EmitOnLevelSelected(_level_setting);
 	}
 
 	private bool Valid()
