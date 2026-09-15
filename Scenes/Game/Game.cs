@@ -23,7 +23,7 @@ public partial class Game : Control
 	{
 		foreach (Node child in _tileGrid.GetChildren())
 		{
-			_tileGrid.RemoveChild(child);
+			child.QueueFree();
 		}
 	}
 
