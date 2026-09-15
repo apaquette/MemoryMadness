@@ -3,7 +3,7 @@ using Godot;
 public partial class Master : Control
 {
 	[Export] private Control _main_scene;
-	[Export] private Control _game_scene;
+	[Export] private Game _game_scene;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
