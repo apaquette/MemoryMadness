@@ -9,13 +9,13 @@ public partial class Game : Control
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		RemoveTiles();
 		SignalHub.Instance.Connect(SignalHub.SignalName.OnLevelSelected, Callable.From<LevelSetting>(OnLevelSelected));
 		_exitButton.Connect("pressed", Callable.From(OnExitButtonPressed));
 	}
 
     private void OnExitButtonPressed()
     {
+		RemoveTiles();
         SignalHub.EmitOnLevelExit();
     }
 
@@ -39,7 +39,6 @@ public partial class Game : Control
 
 	private void OnLevelSelected(LevelSetting level_setting)
 	{
-		RemoveTiles();
 		AddTiles(level_setting);
 	}
 }
