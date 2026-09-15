@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ceu42wmi08uyy" path="res://Assets/ui/green_button00.png" id="5_1q8bt"]
 [ext_resource type="LabelSettings" uid="uid://lx1tpw3t653r" path="res://Resources/UiWhiteLabel24.tres" id="6_3k6gv"]
 
-[node name="Game" type="Control" unique_id=1280818127 node_paths=PackedStringArray("_tileGrid")]
+[node name="Game" type="Control" unique_id=1280818127 node_paths=PackedStringArray("_tileGrid", "_exitButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,6 +18,7 @@ grow_vertical = 2
 script = ExtResource("1_1q8bt")
 _tileGrid = NodePath("HB/TileGrid")
 _memoryTileScene = ExtResource("1_rdw05")
+_exitButton = NodePath("HB/MC/VB/ExitButton")
 
 [node name="HB" type="HBoxContainer" parent="." unique_id=1459080975]
 layout_mode = 1

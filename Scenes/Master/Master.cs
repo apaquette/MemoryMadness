@@ -1,3 +1,4 @@
+using System;
 using Godot;
 
 public partial class Master : Control
@@ -9,7 +10,13 @@ public partial class Master : Control
 	{
 		ShowGame(false);
 		SignalHub.Instance.Connect(SignalHub.SignalName.OnLevelSelected, Callable.From<LevelSetting>(OnLevelSelected));
+		SignalHub.Instance.Connect(SignalHub.SignalName.OnLevelExit, Callable.From(OnLevelExit));
 	}
+
+    private void OnLevelExit()
+    {
+        ShowGame(false);
+    }
 
     private void OnLevelSelected(LevelSetting level_setting)
     {
