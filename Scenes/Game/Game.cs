@@ -15,30 +15,18 @@ public partial class Game : Control
 
     private void OnExitButtonPressed()
     {
-		RemoveTiles();
-        SignalHub.EmitOnLevelExit();
-    }
-
-    private void RemoveTiles()
-	{
 		foreach (Node child in _tileGrid.GetChildren())
 		{
 			child.QueueFree();
 		}
-	}
-
-	private void AddTiles(LevelSetting level_setting)
+        SignalHub.EmitOnLevelExit();
+    }
+	private void OnLevelSelected(LevelSetting level_setting)
 	{
 		_tileGrid.Columns = level_setting.Columns;
 		for (int i = 0; i < level_setting.TileCount; i++)
 		{
-			MemoryTile tile = _memoryTileScene.Instantiate<MemoryTile>();
-			_tileGrid.AddChild(tile);
+			_tileGrid.AddChild(_memoryTileScene.Instantiate<MemoryTile>());
 		}
-	}
-
-	private void OnLevelSelected(LevelSetting level_setting)
-	{
-		AddTiles(level_setting);
 	}
 }
