@@ -12,7 +12,7 @@ public partial class FrontSprite : TextureRect
 
 	private void SetRandomImage()
 	{
-		Texture = ImageManager.GetRandom();
+		Texture = ImageManager.GetRandomImage();
 	}
 
 	private static float GetRandomRotation() => (float)Mathf.DegToRad(GD.RandRange(-360.0, 360.0));

@@ -14,6 +14,12 @@ public partial class MemoryTile : TextureButton
         Reveal(true);
     }
 
+	public void Setup(Texture2D image, Texture2D frame)
+	{
+		_item.Texture = image;
+		_frame.Texture = frame;
+	}
+
     private void Reveal(bool show)
 	{
 		_frame.Visible = show;

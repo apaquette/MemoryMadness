@@ -21,12 +21,16 @@ public partial class Game : Control
 		}
         SignalHub.EmitOnLevelExit();
     }
-	private void OnLevelSelected(LevelSetting level_setting)
+	private void OnLevelSelected(LevelSetting levelSetting)
 	{
-		_tileGrid.Columns = level_setting.Columns;
-		for (int i = 0; i < level_setting.TileCount; i++)
+		Texture2D frameImage = ImageManager.GetRandomFrame();
+		_tileGrid.Columns = levelSetting.Columns;
+		LevelDataSelector levelDataSelector = new();
+		foreach(var item in levelDataSelector.GetLevelImages(levelSetting))
 		{
-			_tileGrid.AddChild(_memoryTileScene.Instantiate<MemoryTile>());
+			MemoryTile tile = _memoryTileScene.Instantiate<MemoryTile>();
+			_tileGrid.AddChild(tile);
+			tile.Setup(item, frameImage);
 		}
 	}
 }
