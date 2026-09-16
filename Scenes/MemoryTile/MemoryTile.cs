@@ -1,15 +1,22 @@
 using Godot;
-using System;
 
 public partial class MemoryTile : TextureButton
 {
+	[Export] private TextureRect _frame, _item;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		Pressed += OnPressed;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+    private void OnPressed()
+    {
+        Reveal(true);
+    }
+
+    private void Reveal(bool show)
 	{
+		_frame.Visible = show;
+		_item.Visible = show;
 	}
 }
