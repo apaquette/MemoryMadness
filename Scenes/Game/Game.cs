@@ -6,6 +6,7 @@ public partial class Game : Control
 	[Export] private GridContainer _tileGrid;
 	[Export] private PackedScene _memoryTileScene;
 	[Export] private TextureButton _exitButton;
+	[Export] private Scorer _scorer;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -23,10 +24,10 @@ public partial class Game : Control
     }
 	private void OnLevelSelected(LevelSetting levelSetting)
 	{
+		_scorer.ClearNewGame();
 		Texture2D frameImage = ImageManager.GetRandomFrame();
 		_tileGrid.Columns = levelSetting.Columns;
-		LevelDataSelector levelDataSelector = new();
-		foreach(var item in levelDataSelector.GetLevelImages(levelSetting))
+		foreach(var item in new LevelDataSelector().GetLevelImages(levelSetting))
 		{
 			MemoryTile tile = _memoryTileScene.Instantiate<MemoryTile>();
 			_tileGrid.AddChild(tile);

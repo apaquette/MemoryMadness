@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bg7l7h8e24g3n"]
+
+[ext_resource type="Script" uid="uid://crtyyt51gh8jh" path="res://Scenes/Scorer/Scorer.cs" id="1_pmgxc"]
+
+[node name="Scorer" type="Node" unique_id=1992488 node_paths=PackedStringArray("_revealTimer")]
+script = ExtResource("1_pmgxc")
+_revealTimer = NodePath("RevealTimer")
+
+[node name="RevealTimer" type="Timer" parent="." unique_id=185271682]
+wait_time = 1.4
+one_shot = true

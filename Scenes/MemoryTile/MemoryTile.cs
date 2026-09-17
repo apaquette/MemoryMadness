@@ -11,7 +11,11 @@ public partial class MemoryTile : TextureButton
 
     private void OnPressed()
     {
-        Reveal(true);
+		if (Scorer.SelectionEnabled)
+		{
+        	Reveal(true);
+			SignalHub.EmitOnTileSelected(this);
+		}
     }
 
 	public void Setup(Texture2D image, Texture2D frame)
@@ -20,7 +24,7 @@ public partial class MemoryTile : TextureButton
 		_frame.Texture = frame;
 	}
 
-    private void Reveal(bool show)
+    public void Reveal(bool show)
 	{
 		_frame.Visible = show;
 		_item.Visible = show;
