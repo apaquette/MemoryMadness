@@ -6,6 +6,8 @@ public partial class Scorer : Node
 	public static bool SelectionEnabled { get; private set; } = true;
 	[Export] private Timer _revealTimer;
 	private List<MemoryTile> _selectedTiles = [];
+	private int _movesMade = 0, _pairsMade = 0, _targetPairs = 0;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -20,7 +22,9 @@ public partial class Scorer : Node
 		{
 			_selectedTiles[0].KillOnPair();
 			_selectedTiles[1].KillOnPair();
+			_pairsMade++;
 		}
+		SignalHub.EmitOnMoveMade(++_movesMade, _pairsMade);
 	}
 
     private void OnLevelExit()
@@ -29,10 +33,13 @@ public partial class Scorer : Node
 		_selectedTiles.Clear();
     }
 
-    public void ClearNewGame()
+    public void ClearNewGame(LevelSetting levelSetting)
 	{
 		_selectedTiles.Clear();
 		SelectionEnabled = true;
+		_movesMade = 0;
+		_pairsMade = 0;
+		_targetPairs = levelSetting.TargetPairs;
 	}
 
     private void OnRevealTimeout()

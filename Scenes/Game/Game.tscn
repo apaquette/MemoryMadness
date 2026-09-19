@@ -9,7 +9,7 @@
 [ext_resource type="LabelSettings" uid="uid://lx1tpw3t653r" path="res://Resources/UiWhiteLabel24.tres" id="6_3k6gv"]
 [ext_resource type="PackedScene" uid="uid://bg7l7h8e24g3n" path="res://Scenes/Scorer/Scorer.tscn" id="8_gvja8"]
 
-[node name="Game" type="Control" unique_id=1280818127 node_paths=PackedStringArray("_tileGrid", "_exitButton", "_scorer")]
+[node name="Game" type="Control" unique_id=1280818127 node_paths=PackedStringArray("_tileGrid", "_exitButton", "_scorer", "_movesLabel", "_pairsLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,6 +21,8 @@ _tileGrid = NodePath("HB/TileGrid")
 _memoryTileScene = ExtResource("1_rdw05")
 _exitButton = NodePath("HB/MC/VB/ExitButton")
 _scorer = NodePath("Scorer")
+_movesLabel = NodePath("HB/MC/VB/HB/LabelMoves")
+_pairsLabel = NodePath("HB/MC/VB/HB2/LabelPairs")
 
 [node name="HB" type="HBoxContainer" parent="." unique_id=1459080975]
 layout_mode = 1
@@ -69,7 +71,6 @@ label_settings = ExtResource("2_gwu2e")
 
 [node name="LabelMoves" type="Label" parent="HB/MC/VB/HB" unique_id=924001705]
 layout_mode = 2
-text = "000"
 label_settings = ExtResource("2_gwu2e")
 
 [node name="HB2" type="HBoxContainer" parent="HB/MC/VB" unique_id=1515765088]
@@ -81,9 +82,8 @@ size_flags_horizontal = 3
 text = "pairs"
 label_settings = ExtResource("2_gwu2e")
 
-[node name="LabelMoves" type="Label" parent="HB/MC/VB/HB2" unique_id=1951761286]
+[node name="LabelPairs" type="Label" parent="HB/MC/VB/HB2" unique_id=1951761286]
 layout_mode = 2
-text = "10/10"
 label_settings = ExtResource("2_gwu2e")
 
 [node name="Control" type="Control" parent="HB/MC/VB" unique_id=297589982]

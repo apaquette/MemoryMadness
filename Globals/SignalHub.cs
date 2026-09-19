@@ -7,6 +7,7 @@ public partial class SignalHub : Node
 	[Signal] public delegate void OnTileSelectedEventHandler(MemoryTile memoryTile);
 	[Signal] public delegate void OnLevelSelectedEventHandler(LevelSetting levelSetting);
 	[Signal] public delegate void OnLevelExitEventHandler();
+	[Signal] public delegate void OnMoveMadeEventHandler();
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -25,5 +26,10 @@ public partial class SignalHub : Node
 	public static void EmitOnLevelExit()
 	{
 		Instance.EmitSignal(SignalName.OnLevelExit);
+	}
+
+	public static void EmitOnMoveMade(int moves, int pairs)
+	{
+		Instance.EmitSignal(SignalName.OnMoveMade, moves, pairs);
 	}
 }
