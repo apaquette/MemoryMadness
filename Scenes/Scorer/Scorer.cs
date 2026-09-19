@@ -16,17 +16,6 @@ public partial class Scorer : Node
 		_revealTimer.Timeout += OnRevealTimeout;
 	}
 
-	private void CheckForPair()
-	{
-		if (_selectedTiles[0].Matches(_selectedTiles[1]))
-		{
-			_selectedTiles[0].KillOnPair();
-			_selectedTiles[1].KillOnPair();
-			_pairsMade++;
-		}
-		SignalHub.EmitOnMoveMade(++_movesMade, _pairsMade);
-	}
-
     private void OnLevelExit()
     {
         _revealTimer.Stop();
@@ -52,18 +41,20 @@ public partial class Scorer : Node
 		SelectionEnabled = true;
     }
 
-    private void ProcessPair()
-	{
-		if(_selectedTiles.Count != 2) return;
-		SelectionEnabled = false;
-		_revealTimer.Start();
-		CheckForPair();
-	}
-
     private void OnTileSelected(MemoryTile tile)
     {
 		if(!SelectionEnabled || _selectedTiles.Contains(tile)) return;
         _selectedTiles.Add(tile);
-		ProcessPair();
+		
+		if(_selectedTiles.Count != 2) return;
+		SelectionEnabled = false;
+		_revealTimer.Start();
+		if (_selectedTiles[0].Matches(_selectedTiles[1]))
+		{
+			_selectedTiles[0].KillOnPair();
+			_selectedTiles[1].KillOnPair();
+			_pairsMade++;
+		}
+		SignalHub.EmitOnMoveMade(++_movesMade, _pairsMade);
     }
 }
