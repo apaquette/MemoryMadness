@@ -13,35 +13,18 @@ public partial class ImageManager : Node
 		{
 			GD.PrintErr("ImageManager no tiles!!!");
 		}
-		FrameImages = new Godot.Collections.Array<Texture2D>()
-		{
-			GD.Load<Texture2D>("res://Assets/frames/blue_frame.png"),
+		FrameImages =
+        [
+            GD.Load<Texture2D>("res://Assets/frames/blue_frame.png"),
 			GD.Load<Texture2D>("res://Assets/frames/red_frame.png"),
 			GD.Load<Texture2D>("res://Assets/frames/green_frame.png"),
 			GD.Load<Texture2D>("res://Assets/frames/yellow_frame.png")
-		};
+		];
     }
 
-	public override void _Ready()
-	{
-		Instance = this;
-	}
-
-	public static Texture2D GetRandomImage()
-	{
-		return Instance.TileImagesHolder.GetRandom();
-	}
-	public static Texture2D GetRandomFrame()
-	{
-		return Instance.FrameImages.PickRandom();
-	}
-	public static Texture2D GetAtIndex(int index)
-	{
-		return Instance.TileImagesHolder.GetAtIndex(index);
-	}
-	public static void Shuffle()
-	{
-		Instance.TileImagesHolder.Shuffle();
-	}
-
+	public override void _Ready() => Instance = this;
+	public static Texture2D GetRandomImage() => Instance.TileImagesHolder.GetRandom();
+	public static Texture2D GetRandomFrame() => Instance.FrameImages.PickRandom();
+	public static Texture2D GetAtIndex(int index) => Instance.TileImagesHolder.GetAtIndex(index);
+	public static void Shuffle() => Instance.TileImagesHolder.Shuffle();
 }
