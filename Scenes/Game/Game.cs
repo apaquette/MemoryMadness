@@ -32,6 +32,7 @@ public partial class Game : Control
 			child.QueueFree();
 		}
         SignalHub.EmitOnLevelExit();
+		SignalHub.EmitOnButtonPressed();
     }
 	private void OnLevelSelected(LevelSetting levelSetting)
 	{

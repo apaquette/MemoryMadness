@@ -5,17 +5,24 @@
 [ext_resource type="PackedScene" uid="uid://2juealdyrtgy" path="res://Scenes/FrontSprite/FrontSprite.tscn" id="3_cmk6n"]
 [ext_resource type="Script" uid="uid://dntf2qpy2aikg" path="res://Classes/LevelSetting.cs" id="3_i3fi7"]
 
-[sub_resource type="Resource" id="Resource_o8wgc"]
+[sub_resource type="Resource" id="Resource_i3fi7"]
 resource_local_to_scene = true
 script = ExtResource("3_i3fi7")
 Rows = 2
 Columns = 2
 metadata/_custom_type_script = "uid://dntf2qpy2aikg"
 
-[sub_resource type="Resource" id="Resource_w20t6"]
+[sub_resource type="Resource" id="Resource_o8wgc"]
 resource_local_to_scene = true
 script = ExtResource("3_i3fi7")
 Rows = 3
+Columns = 4
+metadata/_custom_type_script = "uid://dntf2qpy2aikg"
+
+[sub_resource type="Resource" id="Resource_w20t6"]
+resource_local_to_scene = true
+script = ExtResource("3_i3fi7")
+Rows = 4
 Columns = 4
 metadata/_custom_type_script = "uid://dntf2qpy2aikg"
 
@@ -23,24 +30,17 @@ metadata/_custom_type_script = "uid://dntf2qpy2aikg"
 resource_local_to_scene = true
 script = ExtResource("3_i3fi7")
 Rows = 4
-Columns = 4
-metadata/_custom_type_script = "uid://dntf2qpy2aikg"
-
-[sub_resource type="Resource" id="Resource_5s61s"]
-resource_local_to_scene = true
-script = ExtResource("3_i3fi7")
-Rows = 4
 Columns = 6
 metadata/_custom_type_script = "uid://dntf2qpy2aikg"
 
-[sub_resource type="Resource" id="Resource_7npjy"]
+[sub_resource type="Resource" id="Resource_5s61s"]
 resource_local_to_scene = true
 script = ExtResource("3_i3fi7")
 Rows = 5
 Columns = 6
 metadata/_custom_type_script = "uid://dntf2qpy2aikg"
 
-[sub_resource type="Resource" id="Resource_4vhfm"]
+[sub_resource type="Resource" id="Resource_7npjy"]
 resource_local_to_scene = true
 script = ExtResource("3_i3fi7")
 Rows = 7
@@ -94,27 +94,27 @@ alignment = 1
 
 [node name="LevelButton" parent="VBoxContainer/HBLevels" unique_id=675045207 instance=ExtResource("2_cmk6n")]
 layout_mode = 2
-_level_setting = SubResource("Resource_o8wgc")
+_levelSetting = SubResource("Resource_i3fi7")
 
 [node name="LevelButton2" parent="VBoxContainer/HBLevels" unique_id=959965329 instance=ExtResource("2_cmk6n")]
 layout_mode = 2
-_level_setting = SubResource("Resource_w20t6")
+_levelSetting = SubResource("Resource_o8wgc")
 
 [node name="LevelButton3" parent="VBoxContainer/HBLevels" unique_id=395423183 instance=ExtResource("2_cmk6n")]
 layout_mode = 2
-_level_setting = SubResource("Resource_aw1lf")
+_levelSetting = SubResource("Resource_w20t6")
 
 [node name="LevelButton4" parent="VBoxContainer/HBLevels" unique_id=1240778267 instance=ExtResource("2_cmk6n")]
 layout_mode = 2
-_level_setting = SubResource("Resource_5s61s")
+_levelSetting = SubResource("Resource_aw1lf")
 
 [node name="LevelButton5" parent="VBoxContainer/HBLevels" unique_id=340390577 instance=ExtResource("2_cmk6n")]
 layout_mode = 2
-_level_setting = SubResource("Resource_7npjy")
+_levelSetting = SubResource("Resource_5s61s")
 
 [node name="LevelButton6" parent="VBoxContainer/HBLevels" unique_id=240373309 instance=ExtResource("2_cmk6n")]
 layout_mode = 2
-_level_setting = SubResource("Resource_4vhfm")
+_levelSetting = SubResource("Resource_7npjy")
 
 [node name="HBSprites" type="HBoxContainer" parent="VBoxContainer" unique_id=1195548020]
 layout_mode = 2

@@ -5,6 +5,9 @@ public partial class Scorer : Node
 {
 	public static bool SelectionEnabled { get; private set; } = true;
 	[Export] private Timer _revealTimer;
+	[Export] private AudioStream _success;
+	[Export] private AudioStream _over;
+	[Export] private AudioStreamPlayer _effects;
 	private List<MemoryTile> _selectedTiles = [];
 	private int _movesMade = 0, _pairsMade = 0, _targetPairs = 0;
 
@@ -29,6 +32,7 @@ public partial class Scorer : Node
 		_movesMade = 0;
 		_pairsMade = 0;
 		_targetPairs = levelSetting.TargetPairs;
+		_effects.Stream = _success;
 	}
 
     private void OnRevealTimeout()
@@ -38,8 +42,15 @@ public partial class Scorer : Node
 			tile.Reveal(false);
 		}
 		_selectedTiles.Clear();
-		SelectionEnabled = _pairsMade != _targetPairs;
-		if(_pairsMade == _targetPairs) SignalHub.EmitOnGameOver(_movesMade);
+		
+		bool _gameOver = _pairsMade == _targetPairs;
+		SelectionEnabled = !_gameOver;
+		if (_gameOver)
+		{
+			_effects.Stream = _over;
+			_effects.Play();
+			SignalHub.EmitOnGameOver(_movesMade);	
+		}
     }
 
     private void OnTileSelected(MemoryTile tile)
@@ -55,6 +66,7 @@ public partial class Scorer : Node
 			_selectedTiles[0].KillOnPair();
 			_selectedTiles[1].KillOnPair();
 			_pairsMade++;
+			_effects.Play();
 		}
 		SignalHub.EmitOnMoveMade(++_movesMade, _pairsMade);
     }

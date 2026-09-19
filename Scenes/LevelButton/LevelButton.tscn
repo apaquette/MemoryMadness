@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://1slrekuse5ps" path="res://Scenes/LevelButton/LevelButton.cs" id="4_ufld2"]
 [ext_resource type="Script" uid="uid://dntf2qpy2aikg" path="res://Classes/LevelSetting.cs" id="5_0iohd"]
 
-[sub_resource type="Resource" id="Resource_ssxc0"]
+[sub_resource type="Resource" id="Resource_ufld2"]
 resource_local_to_scene = true
 script = ExtResource("5_0iohd")
 Rows = 2
@@ -21,7 +21,7 @@ texture_normal = ExtResource("1_3r2e7")
 texture_pressed = ExtResource("2_anpwf")
 texture_hover = ExtResource("3_uqdhg")
 script = ExtResource("4_ufld2")
-_level_setting = SubResource("Resource_ssxc0")
+_levelSetting = SubResource("Resource_ufld2")
 _label = NodePath("Label")
 
 [node name="Label" type="Label" parent="." unique_id=557734608]
