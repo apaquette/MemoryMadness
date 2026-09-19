@@ -16,8 +16,15 @@ public partial class MemoryTile : TextureButton
 
 	public void KillOnPair()
 	{
-		Scale = Vector2.Zero;
+		ZIndex = 10;
 		Disabled = true;
+		Tween tween = CreateTween();
+		tween.SetParallel(true);
+		tween.TweenProperty(this, PropertyName.RotationDegrees.ToString(), 720.0f, 0.5f);
+		tween.TweenProperty(this, PropertyName.Scale.ToString(), new Vector2(1.5f,1.5f), 0.5f);
+		tween.SetParallel(false);
+		tween.TweenInterval(0.5);
+		tween.TweenProperty(this, PropertyName.Scale.ToString(), Vector2.Zero, 0.1f);
 	}
 
     private void OnPressed()

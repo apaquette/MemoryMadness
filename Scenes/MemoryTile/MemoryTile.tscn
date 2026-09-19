@@ -8,6 +8,7 @@
 [node name="MemoryTile" type="TextureButton" unique_id=950395388 node_paths=PackedStringArray("_frame", "_item")]
 offset_right = 40.0
 offset_bottom = 40.0
+pivot_offset = Vector2(42, 42)
 texture_normal = ExtResource("1_dtpqw")
 script = ExtResource("2_axhco")
 _frame = NodePath("FrameImage")
