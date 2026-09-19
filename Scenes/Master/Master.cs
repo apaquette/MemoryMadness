@@ -9,19 +9,9 @@ public partial class Master : Control
 	public override void _Ready()
 	{
 		ShowGame(false);
-		SignalHub.Instance.Connect(SignalHub.SignalName.OnLevelSelected, Callable.From<LevelSetting>(OnLevelSelected));
-		SignalHub.Instance.Connect(SignalHub.SignalName.OnLevelExit, Callable.From(OnLevelExit));
+		SignalHub.Instance.Connect(SignalHub.SignalName.OnLevelSelected, Callable.From<LevelSetting>(setting => ShowGame(true)));
+		SignalHub.Instance.Connect(SignalHub.SignalName.OnLevelExit, Callable.From(() => ShowGame(false)));
 	}
-
-    private void OnLevelExit()
-    {
-        ShowGame(false);
-    }
-
-    private void OnLevelSelected(LevelSetting level_setting)
-    {
-        ShowGame(true);
-    }
 
 	private void ShowGame(bool show)
 	{
