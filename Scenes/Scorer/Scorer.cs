@@ -38,7 +38,8 @@ public partial class Scorer : Node
 			tile.Reveal(false);
 		}
 		_selectedTiles.Clear();
-		SelectionEnabled = true;
+		SelectionEnabled = _pairsMade != _targetPairs;
+		if(_pairsMade == _targetPairs) SignalHub.EmitOnGameOver(_movesMade);
     }
 
     private void OnTileSelected(MemoryTile tile)

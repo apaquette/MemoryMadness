@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://calhgngfctiie"]
+
+[ext_resource type="LabelSettings" uid="uid://dbrmhgy05vqyj" path="res://Resources/UiYellowLabel64.tres" id="1_j2od3"]
+[ext_resource type="Script" uid="uid://hn3dqfa1g2il" path="res://Scenes/GameOverUi/GameOverUi.cs" id="1_mdbud"]
+[ext_resource type="FontFile" uid="uid://c2gt4q4ev7wj1" path="res://Assets/fonts/LuckiestGuy-Regular.ttf" id="2_8nicn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nicn"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(0.101960786, 0.101960786, 0.101960786, 0.8235294)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_mdbud"]
+font = ExtResource("2_8nicn")
+font_size = 24
+font_color = Color(0.28239393, 0.4742394, 0.28376922, 1)
+outline_size = 3
+shadow_size = 3
+shadow_color = Color(0.26657522, 0.2665752, 0.2665752, 0)
+
+[node name="GameOverUi" type="PanelContainer" unique_id=1852253795 node_paths=PackedStringArray("_movesLabel")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.5
+offset_top = -87.0
+offset_right = 211.5
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8nicn")
+script = ExtResource("1_mdbud")
+_movesLabel = NodePath("VBoxContainer/MovesLabel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=980066413]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=589779070]
+layout_mode = 2
+text = "YOU WIN"
+label_settings = ExtResource("1_j2od3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MovesLabel" type="Label" parent="VBoxContainer" unique_id=2084253871]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_mdbud")
+horizontal_alignment = 1
+vertical_alignment = 1

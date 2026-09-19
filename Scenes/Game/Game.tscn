@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ceu42wmi08uyy" path="res://Assets/ui/green_button00.png" id="5_1q8bt"]
 [ext_resource type="LabelSettings" uid="uid://lx1tpw3t653r" path="res://Resources/UiWhiteLabel24.tres" id="6_3k6gv"]
 [ext_resource type="PackedScene" uid="uid://bg7l7h8e24g3n" path="res://Scenes/Scorer/Scorer.tscn" id="8_gvja8"]
+[ext_resource type="PackedScene" uid="uid://calhgngfctiie" path="res://Scenes/GameOverUi/GameOverUi.tscn" id="9_m1o7v"]
 
 [node name="Game" type="Control" unique_id=1280818127 node_paths=PackedStringArray("_tileGrid", "_exitButton", "_scorer", "_movesLabel", "_pairsLabel")]
 layout_mode = 3
@@ -120,3 +121,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Scorer" parent="." unique_id=1992488 instance=ExtResource("8_gvja8")]
+
+[node name="GameOverUi" parent="." unique_id=1852253795 instance=ExtResource("9_m1o7v")]
+layout_mode = 1
+anchors_preset = 10
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 174.0
+grow_vertical = 1
