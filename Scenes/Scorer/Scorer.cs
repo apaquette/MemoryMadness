@@ -1,5 +1,4 @@
 using Godot;
-using System;
 using System.Collections.Generic;
 
 public partial class Scorer : Node
@@ -13,6 +12,15 @@ public partial class Scorer : Node
 		SignalHub.Instance.Connect(SignalHub.SignalName.OnTileSelected, Callable.From<MemoryTile>(OnTileSelected));
 		SignalHub.Instance.Connect(SignalHub.SignalName.OnLevelExit, Callable.From(OnLevelExit));
 		_revealTimer.Timeout += OnRevealTimeout;
+	}
+
+	private void CheckForPair()
+	{
+		if (_selectedTiles[0].Matches(_selectedTiles[1]))
+		{
+			_selectedTiles[0].KillOnPair();
+			_selectedTiles[1].KillOnPair();
+		}
 	}
 
     private void OnLevelExit()
@@ -42,6 +50,7 @@ public partial class Scorer : Node
 		if(_selectedTiles.Count != 2) return;
 		SelectionEnabled = false;
 		_revealTimer.Start();
+		CheckForPair();
 	}
 
     private void OnTileSelected(MemoryTile tile)
